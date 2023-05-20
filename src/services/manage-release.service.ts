@@ -1,8 +1,9 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { SetCreditDTO } from '../commons/dto/set-credit.dto';
 import { SetDebitDTO } from '../commons/dto/set-debit.dto';
-import { BalanceRepositoryInterface } from 'src/commons/interface/balance-repository.interface';
-import { EBalanceType } from 'src/commons/enum/balance-type.enum';
+import { BalanceRepositoryInterface } from '../commons/interface/balance-repository.interface';
+import { EBalanceType } from '../commons/enum/balance-type.enum';
+import { BalanceEntity } from '../entity/balance.entity';
 
 @Injectable()
 export class ManageReleaseService {
@@ -11,14 +12,28 @@ export class ManageReleaseService {
     private readonly balanceRepository: BalanceRepositoryInterface,
   ) {}
 
-  setCredit(setCreditDTO: SetCreditDTO) {
+  async setCredit(setCreditDTO: SetCreditDTO): Promise<BalanceEntity> {
+    if (!setCreditDTO) {
+      throw new HttpException(
+        'Credit payload can not be empty',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     return this.balanceRepository.save({
       ...setCreditDTO,
       type: EBalanceType.credit,
     });
   }
 
-  setDebit(setDebitDTO: SetDebitDTO) {
+  async setDebit(setDebitDTO: SetDebitDTO): Promise<BalanceEntity> {
+    if (!setDebitDTO) {
+      throw new HttpException(
+        'Debit payload can not be empty',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     return this.balanceRepository.save({
       ...setDebitDTO,
       type: EBalanceType.debit,

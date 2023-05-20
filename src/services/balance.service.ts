@@ -3,6 +3,7 @@ import { BalanceRepositoryInterface } from '../commons/interface/balance-reposit
 import { format } from 'date-fns';
 import { calculateCurrentBalanceByType } from '../commons/utils/calculate-current-balance';
 import { DailyCurrentBalance } from '../commons/type/balance.type';
+import { BalanceEntity } from '../entity/balance.entity';
 
 @Injectable()
 export class BalanceService {
@@ -11,12 +12,12 @@ export class BalanceService {
     private readonly balanceRepository: BalanceRepositoryInterface,
   ) {}
 
-  getAll() {
+  async getAll(): Promise<BalanceEntity[]> {
     return this.balanceRepository.findAll();
   }
 
-  getDaily(): DailyCurrentBalance[] {
-    const balances = this.balanceRepository.findAll();
+  async getDaily(): Promise<DailyCurrentBalance[]> {
+    const balances = await this.balanceRepository.findAll();
     const key = 'createdAt';
 
     return balances.reduce((result, item) => {

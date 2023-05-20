@@ -1,9 +1,10 @@
 import { BalanceEntity } from '../entity/balance.entity';
 import { BalanceRepositoryInterface } from '../commons/interface/balance-repository.interface';
-import { EBalanceType } from 'src/commons/enum/balance-type.enum';
+import { EBalanceType } from '../commons/enum/balance-type.enum';
 
 // Repository Pattern
 export class BalanceRepository implements BalanceRepositoryInterface {
+  findOne: (id: number) => Promise<BalanceEntity>;
   private readonly db: BalanceEntity[] = [
     {
       id: 1,
@@ -43,22 +44,18 @@ export class BalanceRepository implements BalanceRepositoryInterface {
     },
   ];
 
-  findAll() {
-    return this.db;
+  async findAll() {
+    return Promise.resolve(this.db);
   }
 
-  findOne(id: number) {
-    return this.db.find((item) => item.id === id);
-  }
-
-  save(balance: Partial<BalanceEntity>) {
+  async save(balance: Partial<BalanceEntity>) {
     const balanceCreated = {
       id: this.db.length + 1,
       createdAt: new Date(),
       ...balance,
     } as BalanceEntity;
 
-    this.db.push(balanceCreated);
+    await Promise.resolve(this.db.push(balanceCreated));
 
     return balanceCreated;
   }
