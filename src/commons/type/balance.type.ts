@@ -1,7 +1,7 @@
 import { BalanceDTO } from '../dto/balance.dto';
 
 export type DailyCurrentBalance = {
-  currentValue: number;
+  currentBalance: number;
   date: Date;
   history: BalanceDTO[];
 };
