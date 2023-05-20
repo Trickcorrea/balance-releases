@@ -3,8 +3,8 @@ import { SetCreditDTO } from '../commons/dto/set-credit.dto';
 import { SetDebitDTO } from '../commons/dto/set-debit.dto';
 import { ManageReleaseService } from '../services/manage-release.service';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { HandleErrorDTO } from 'src/commons/dto/handle-error.dto';
-import { BalanceDTO } from 'src/commons/dto/balance.dto';
+import { HandleErrorDTO } from '../commons/dto/handle-error.dto';
+import { BalanceDTO } from '../commons/dto/balance.dto';
 
 @Controller('manage-release')
 @ApiTags('Manage Release')
