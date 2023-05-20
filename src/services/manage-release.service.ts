@@ -5,6 +5,8 @@ import { BalanceRepositoryInterface } from '../commons/interface/balance-reposit
 import { EBalanceType } from '../commons/enum/balance-type.enum';
 import { BalanceEntity } from '../entity/balance.entity';
 
+//SRP - SOLID
+//DIP - SOLID
 @Injectable()
 export class ManageReleaseService {
   constructor(

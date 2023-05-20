@@ -5,6 +5,8 @@ import { calculateCurrentBalanceByType } from '../commons/utils/calculate-curren
 import { DailyCurrentBalance } from '../commons/type/balance.type';
 import { BalanceEntity } from '../entity/balance.entity';
 
+//SRP - SOLID
+//DIP - SOLID
 @Injectable()
 export class BalanceService {
   constructor(

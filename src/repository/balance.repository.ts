@@ -3,6 +3,7 @@ import { BalanceRepositoryInterface } from '../commons/interface/balance-reposit
 import { EBalanceType } from '../commons/enum/balance-type.enum';
 
 // Repository Pattern
+// SRP - SOLID
 export class BalanceRepository implements BalanceRepositoryInterface {
   findOne: (id: number) => Promise<BalanceEntity>;
   private readonly db: BalanceEntity[] = [

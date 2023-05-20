@@ -7,6 +7,8 @@ import { DailyBalanceDTO } from '../commons/dto/daily-balance.dto';
 @Controller('balance')
 @ApiTags('Balance')
 export class BalanceController {
+  //SRP - SOLID
+  //DIP - SOLID
   constructor(private readonly balanceService: BalanceService) {}
 
   @Get()

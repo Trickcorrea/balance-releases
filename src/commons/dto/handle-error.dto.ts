@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
+//DTO Pattern
 export class HandleErrorDTO {
   @ApiProperty()
   statusCode: number;

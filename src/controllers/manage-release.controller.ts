@@ -9,7 +9,8 @@ import { BalanceDTO } from '../commons/dto/balance.dto';
 @Controller('manage-release')
 @ApiTags('Manage Release')
 export class ManageReleaseController {
-  // DIP of SOLID
+  //SRP - SOLID
+  //DIP - SOLID
   constructor(private readonly manageReleaseService: ManageReleaseService) {}
 
   @Post('set-credit')

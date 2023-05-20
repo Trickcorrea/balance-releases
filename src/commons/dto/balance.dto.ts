@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { BalanceEntity } from '../../entity/balance.entity';
 import { EBalanceType } from '../enum/balance-type.enum';
 
+//DTO Pattern
 export class BalanceDTO implements BalanceEntity {
   @ApiProperty()
   id: number;
