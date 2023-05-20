@@ -4,7 +4,7 @@ import { DailyCurrentBalance } from '../type/balance.type';
 
 export class DailyBalanceDTO implements DailyCurrentBalance {
   @ApiProperty()
-  currentValue: number;
+  currentBalance: number;
 
   @ApiProperty()
   date: Date;
