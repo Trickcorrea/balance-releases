@@ -1,3 +1,6 @@
+## Architecture
+![alt text](./architecture-design.png)
+
 ## Description
 Esse projeto tem 4 endpoint que pode ser observado na documentação Swagger.
 ```bash
